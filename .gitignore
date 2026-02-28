@@ -1,2 +1,3 @@
 .workspaces/
 .drawings/
+__pycache__/

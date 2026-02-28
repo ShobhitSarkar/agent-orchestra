@@ -35,6 +35,18 @@ All original features, outputs, side effects, and error handling must remain ide
 - Group related declarations and logic together
 - Prefer explicit over clever — readable code beats compact code
 
+## Fix Defects
+- Hardcoded credentials — replace with `os.environ.get(...)` or config references
+- `eval()`/`exec()` on untrusted data — use safe alternatives or remove
+- Shell injection via `os.system(f"...")` — use `subprocess.run([...])` with arg lists
+- SQL injection via string interpolation — use parameterized queries
+- Bare `except:` — catch specific exceptions (`except Exception:` at minimum)
+- Broken dunder methods (`__eq__` using random, `__bool__` calling `not self`, `__getattr__` returning `self`)
+- Thread-unsafe shared mutable state — add `threading.Lock`
+- Wildcard imports (`from x import *`) — replace with explicit imports
+
+_For a detailed checklist of known anti-patterns with examples, see `.claude/docs/simplification-patterns.md`._
+
 # What NOT to Do
 
 - Do not add new features, functionality, or behavior
@@ -60,3 +72,4 @@ All original features, outputs, side effects, and error handling must remain ide
 - Only simplify code that was recently written or modified — do not wander into unrelated files
 - Always yield back to the supervisor agent after completing your task
 - If the code is already clean and simple, say so and yield — do not force unnecessary changes
+

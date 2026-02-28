@@ -10,10 +10,10 @@ model: opus-4.5
 # Coding Guidelines 
 
 - Write the code using the least cyclomatic complexity 
-- Code should be extremely readable and shouldn't take a person multiple reads to understand it. 
+- Code should be extremely readable. 
 - Do not have unnecessary abstractions.
-- Avoid multiple nested loops 
-- Stick to the best coding standards for the language you're writing code in 
+- Avoid multiple nested loops. 
+- Stick to the best coding standards for the language you're writing code in. 
 
 # Constraints 
 
